@@ -8,13 +8,11 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #0a0205; font-family: -apple-system, sans-serif; }
-
     model-viewer {
       width: 100vw;
       height: 100vh;
       --poster-color: #0a0205;
     }
-
     #overlay {
       position: fixed;
       top: 0; left: 0;
@@ -26,7 +24,6 @@
       justify-content: space-between;
       padding: 28px 20px;
     }
-
     #logo {
       font-size: 12px;
       font-weight: 600;
@@ -44,7 +41,6 @@
       border-radius: 50%;
       background: #C9A84C;
     }
-
     #ar-hint {
       text-align: center;
       display: flex;
@@ -53,7 +49,6 @@
       gap: 10px;
       pointer-events: all;
     }
-
     #ar-btn {
       background: #C9A84C;
       color: #0a0205;
@@ -66,19 +61,16 @@
       cursor: pointer;
       text-transform: uppercase;
     }
-
     #ar-hint p {
       font-size: 12px;
       color: rgba(255,255,255,0.5);
     }
-
     #disclaimer {
       font-size: 10px;
       color: rgba(255,255,255,0.35);
       text-align: center;
       line-height: 1.6;
     }
-
     .hotspot-label {
       background: rgba(10,2,5,0.88);
       border: 0.5px solid rgba(201,168,76,0.5);
@@ -100,13 +92,14 @@
   </style>
 </head>
 <body>
-
   <model-viewer
     id="viewer"
     src="botella1.glb"
     ios-src="botella2.usdz"
     ar
     ar-modes="webxr scene-viewer quick-look"
+    ar-scale="fixed"
+    scale="0.3 0.3 0.3"
     camera-controls
     auto-rotate
     auto-rotate-delay="1000"
@@ -118,29 +111,23 @@
     <button slot="ar-button" id="ar-btn">
       Ver en tu espacio
     </button>
-
     <div class="hotspot-label" slot="hotspot-1"
       data-position="0 1.2 0.1"
       data-normal="0 0 1">
       <strong>Valle de Curicó</strong>
       Cabernet Sauvignon · 2022
     </div>
-
   </model-viewer>
-
   <div id="overlay">
     <div id="logo">VinoRumbo</div>
-
     <div id="ar-hint">
       <p>Rota · Acerca · Explora</p>
     </div>
-
     <div id="disclaimer">
       El consumo de alcohol es perjudicial para la salud.<br>
       Prohibida su venta a menores de 18 años. Beba con moderación.
     </div>
   </div>
-
   <script type="module">
     const viewer = document.querySelector('#viewer');
     viewer.addEventListener('ar-status', (e) => {
@@ -151,6 +138,5 @@
       }
     });
   </script>
-
 </body>
 </html>
